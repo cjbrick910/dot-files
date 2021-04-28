@@ -1,6 +1,6 @@
 # dot-files
 
-This is a repository with my most used configuration files and scripts needed to get a good customized setup running
+This is a repository with my most used configuration files and scripts needed to get a good customized setup running.
 
 Here's what this includes:
 * .bashrc - my customized bash prompt
