@@ -1,0 +1,24 @@
+[global_config]
+  title_transmit_bg_color = "#3584e4"
+  title_font = Hack 9
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.49
+    cursor_color = "#aaaaaa"
+    font = Hack 10
+    foreground_color = "#ffffff"
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
+    bold_is_bright = True
+    split_to_group = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
