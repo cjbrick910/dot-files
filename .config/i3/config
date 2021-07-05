@@ -31,8 +31,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -43,28 +43,42 @@ floating_modifier $mod
 #  Start Programs   #
 #####################
 
-# start a terminal
+#start a terminal
 bindsym $mod+Return exec terminator
 
-#start firefox
+#start Firefox
 bindsym $mod+z exec firefox
+
+#start Nemo
+bindsym $mod+x exec nemo
+
+#start Emacs
+bindsym $mod+c exec emacs
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+## Rofi Starting
+
+# start rofi drun mode
+bindsym $mod+d exec --no-startup-id rofi -show drun --show-icons
+
+# start rofi window mode
+bindsym $mod+w exec --no-startup-id rofi -show window --show-icons
+
+## Dunst
+
+# View dunst history
+bindsym $mod+n exec --no-startup-id dunstctl history-pop
+
+#dunst clear all notifs
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close-all
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -73,10 +87,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -95,7 +109,6 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -149,10 +162,15 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# lock screen
+bindsym $mod+Shift+l exec --no-startup-id loginctl lock-session
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -186,12 +204,45 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        #change system tray display to the primary monitor
+        tray_output primary
+        #sets the i3status command to my custom conky script
         status_command $HOME/scripts/i3/conky-i3bar
+        #change i3bar colors
+        colors{
+        #class             border  backgr  text        
+        focused_workspace  #545454 #000000 #00ffff
+        inactive_workspace #545454 #202020 #00ffff
+        active_workspace   #545454 #202020 #00ffff
+        urgent_workspace   #545454 #202020 #00ffff
+        }
 }
+
+#####################
+#      Colors       #
+#####################
+
+### Main Window Colors
+# class                 border  bground text    indicator child_border
+client.focused          #545454 #202020 #00ffff #2E9EF4   #00d7ff
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+### Gaps Config
+for_window [class=".*"] border pixel 2
+smart_gaps on
+gaps inner 10
+smart_borders on
+
+
+
 
 #####################
 #     Autostart     #
 #####################
+exec_always dunst
 exec_always --no-startup-id ~/.screenlayout/layout.sh
 exec --no-startup-id lxpolkit
 exec ckb-next -b
