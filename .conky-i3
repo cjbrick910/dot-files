@@ -36,7 +36,7 @@ conky.config = {
 conky.text = [[
 [
     { "full_text": "home${fs_free /home} Free" , "color": "\#ffffff" },
-    { "full_text": "cold-storage${fs_free /home/lenin/cold-storage} Free" , "color": "\#ffffff"},
+    { "full_text": "cold-storage ${fs_free /home/lenin/cold-storage} Free" , "color": "\#ffffff"},
     { "full_text": "ram ${mem}" , "color": "\#ffffff" },
     { "full_text": "cpu0 ${cpu cpu1}" , "color": ${if_match ${cpu cpu1}<90}"\#ffffff"${else}"\#ff0000"${endif}},
     { "full_text": "cpu1 ${cpu cpu2}" , "color": ${if_match ${cpu cpu2}<90}"\#ffffff"${else}"\#ff0000"${endif}},
@@ -46,6 +46,7 @@ conky.text = [[
     { "full_text": "cpu5 ${cpu cpu6}" , "color": ${if_match ${cpu cpu6}<90}"\#ffffff"${else}"\#ff0000"${endif}},
     { "full_text": "ul: ${upspeed}" },
     { "full_text": "dl: ${downspeed}" },
+    { "full_text": "Volume: ${exec ~/scripts/conky/volume_exec}" },
     { "full_text": "${time}" , "color": "\#ffffff" }
 ],
 ]];
