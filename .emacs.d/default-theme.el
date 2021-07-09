@@ -1,5 +1,5 @@
 (deftheme default
-  "Created 2021-01-18.")
+  "Created 2021-05-20.")
 
 (custom-theme-set-faces
  'default
@@ -19,13 +19,13 @@
  '(font-lock-comment-face ((t (:foreground "dark gray" :slant italic))))
  '(font-lock-constant-face ((t (:foreground "DarkOliveGreen3"))))
  '(font-lock-doc-face ((t (:foreground "moccasin"))))
- '(font-lock-function-name-face ((t (:foreground "goldenrod"))))
+ '(font-lock-function-name-face ((t (:foreground "cyan"))))
  '(font-lock-keyword-face ((t (:foreground "DeepSkyBlue1"))))
  '(font-lock-negation-char-face ((t nil)))
  '(font-lock-preprocessor-face ((t (:foreground "gold"))))
  '(font-lock-regexp-grouping-backslash ((t (:weight bold))))
  '(font-lock-regexp-grouping-construct ((t (:weight bold))))
- '(font-lock-string-face ((t (:foreground "burlywood"))))
+ '(font-lock-string-face ((t (:foreground "green"))))
  '(font-lock-type-face ((t (:foreground "CadetBlue1"))))
  '(font-lock-variable-name-face ((t (:foreground "SeaGreen2"))))
  '(font-lock-warning-face ((t (:inherit (error)))))
@@ -51,6 +51,8 @@
  '(company-tooltip-common ((t (:foreground "cyan"))))
  '(company-scrollbar-fg ((t (:background "cyan"))))
  '(company-scrollbar-bg ((t (:background "medium blue"))))
- '(default ((t (:inherit nil :stipple nil :background "midnight blue" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "ADBO" :family "Hack")))))
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 99 :width normal :foundry "ADBO" :family "Hack"))))
+ '(org-todo ((t (:foreground "red" :weight bold))))
+ '(org-done ((t (:foreground "green" :weight bold)))))
 
 (provide-theme 'default)
