@@ -3,7 +3,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
 
 # Environment Variables
-export CVSROOT="/home/lenin/downloads/bbgames/d1/routefree/bbgames/depot"
+export CVSROOT="/home/lenin/dev/bbgames/d1/routefree/bbgames/depot"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Keyboard Bindings
@@ -90,4 +90,5 @@ bindkey -e
 PROMPT='%F{cyan}[%n@%m: %~$] '
 
 # Testing welcome message
-echo "Welcome ${USER}, it is currently $(date +%H:%M,\ "on"\ %A,\ %b\ %_d,\ %Y). I am running kernel version $(uname -r)"
+echo "Welcome ${USER}, it is currently $(date +%H:%M,\ "on"\ %A,\ %b\ %_d,\ %Y). 
+My IP address is $(ip add show wlan0 | grep -w "inet" | cut -b 10-20), and I am running kernel version $(uname -r)"
