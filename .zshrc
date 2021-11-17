@@ -62,6 +62,17 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[default]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[path]=fg=white,underline,bold
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg=cyan,underline,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]=fg=red,underline,bold
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]=fg=red,underline,bold
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan,bold
 
 
 # Completion settings
@@ -91,4 +102,4 @@ PROMPT='%F{cyan}[%n@%m: %~$] '
 
 # Testing welcome message
 echo "Welcome ${USER}, it is currently $(date +%H:%M,\ "on"\ %A,\ %b\ %_d,\ %Y). 
-My IP address is $(ip add show wlan0 | grep -w "inet" | cut -b 10-20), and I am running kernel version $(uname -r)"
+My IP address is $(ip add show eno1 | grep -w "inet" | cut -b 10-20), and I am running kernel version $(uname -r)"
