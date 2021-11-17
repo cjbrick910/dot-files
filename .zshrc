@@ -64,6 +64,7 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[path]=fg=white,underline,bold
 ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg=cyan,underline,bold
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=cyan,bold,underline
 ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan,bold
